@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <EditText
+        android:id="@+id/titleMenuEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textColorHint="@color/BackroundTintFood"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:fontFamily="@font/uvnbachdang"
+        android:textSize="60sp"
+        android:textStyle="bold"
+        android:hint="Type Title"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:fontFamily="@font/maven_pro_black"
+        android:textColor="@color/black"
+        android:hint="Choose image:  "
+        android:gravity="center"
+        android:textSize="20sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="horizontal"
+        android:paddingRight="2dp"
+        android:paddingLeft="2dp">
+
+        <ImageView
+            android:layout_margin="10dp"
+            android:id="@+id/pictureMenuEdit"
+            android:layout_width="160dp"
+            android:layout_height="130dp"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/image" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <Button
+                android:layout_marginTop="20dp"
+                android:id="@+id/btn_uploadMenuEdit"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:backgroundTint="@color/BackroundTintFood"
+                android:text="choose image"
+                android:textSize="15sp"
+                android:fontFamily="@font/maven_pro_black"
+                android:textColor="@color/black"
+                android:contentDescription="upload image from your phone"
+                app:srcCompat="@drawable/upload_image" />
+            <Button
+                android:layout_marginTop="20dp"
+                android:id="@+id/btn_shotMenuEdit"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:backgroundTint="@color/BackroundTintFood"
+                android:contentDescription="take a shot"
+                android:textSize="15sp"
+                android:fontFamily="@font/maven_pro_black"
+                android:textColor="@color/black"
+                android:text="take image" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_marginLeft="40dp"
+            android:id="@+id/btnDoneMenuEdit"
+            android:text="Done"
+            android:textStyle="bold"
+            android:fontFamily="@font/mavenpro_medium"
+            android:textSize="20sp"
+            android:backgroundTint="@color/BlueNgoc"
+            android:layout_width="120dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_height="50dp"/>
+
+        <Button
+            android:layout_marginLeft="40dp"
+            android:id="@+id/btnEditMenuEdit"
+            android:text="Update"
+            android:textStyle="bold"
+            android:fontFamily="@font/mavenpro_medium"
+            android:textSize="20sp"
+            android:backgroundTint="@color/BlueNgoc"
+            android:layout_width="120dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_height="50dp"/>
+
+    </LinearLayout>
+</LinearLayout>

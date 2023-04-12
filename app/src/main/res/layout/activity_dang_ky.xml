@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".dangKy">
+
+    <ImageButton
+        android:id="@+id/ibtnBackDK"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:background="#FFFFFF"
+        android:src="@drawable/arrowleft"
+        android:contentDescription="image register"/>
+    <TextView
+        android:id="@+id/textViewTaoTaiKhoan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="26dp"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:textColor="#28047A"
+        android:text="TẠO TÀI KHOẢN"
+        ></TextView>
+
+    <EditText
+        android:id="@+id/textViewHoTenTTK"
+        android:layout_width="320dp"
+        android:layout_gravity="center"
+        android:layout_height="50dp"
+        android:textSize="20dp"
+        android:background="@drawable/cuttom_editer"
+        android:drawableLeft="@drawable/pen"
+        android:drawablePadding="10dp"
+        android:layout_margin="10dp"
+        android:textColorHint="#6342AC"
+        android:padding="5dp"
+        android:textColor="#28047A"
+        android:hint="Họ và tên"></EditText>
+    <EditText
+        android:id="@+id/textViewTenTaiKhoanTTK"
+        android:layout_width="320dp"
+        android:layout_gravity="center"
+        android:layout_height="50dp"
+        android:textSize="19dp"
+        android:padding="5dp"
+        android:layout_margin="10dp"
+        android:drawableLeft="@drawable/pen"
+        android:background="@drawable/cuttom_editer"
+        android:drawablePadding="10dp"
+        android:textColorHint="#6342AC"
+        android:textColor="#28047A"
+        android:hint="Tên tài khoản"></EditText>
+    <EditText
+        android:id="@+id/textViewEmailTTK"
+        android:layout_width="320dp"
+        android:layout_gravity="center"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/cuttom_editer"
+        android:textSize="19dp"
+        android:padding="5dp"
+        android:textColorHint="#6342AC"
+        android:drawableLeft="@drawable/mail"
+        android:drawablePadding="10dp"
+        android:textColor="#28047A"
+        android:hint="Email"></EditText>
+    <EditText
+        android:id="@+id/textViewSDTTTK"
+        android:layout_width="320dp"
+        android:layout_gravity="center"
+        android:layout_height="50dp"
+        android:background="@drawable/cuttom_editer"
+        android:textSize="19dp"
+        android:padding="5dp"
+        android:layout_margin="10dp"
+        android:textColorHint="#6342AC"
+        android:drawableLeft="@drawable/phone1"
+        android:drawablePadding="10dp"
+        android:textColor="#28047A"
+        android:hint="Số điện thoại"></EditText>
+    <EditText
+        android:id="@+id/textViewMatKhauTTK"
+        android:layout_width="320dp"
+        android:layout_gravity="center"
+        android:layout_height="50dp"
+        android:padding="5dp"
+        android:textColorHint="#6342AC"
+        android:layout_margin="5dp"
+        android:background="@drawable/cuttom_editer"
+        android:drawablePadding="10dp"
+        android:drawableLeft="@drawable/iconpassword"
+        android:textSize="19dp"
+        android:textColor="#28047A"
+        android:hint="Mật khẩu"></EditText>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center">
+        <TextView
+            android:id="@+id/imageButtonCameraTTK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/camera"></TextView>
+        <ImageView
+            android:id="@+id/imageViewHinhTTK"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@null"
+            android:src="@drawable/img"></ImageView>
+        <TextView
+            android:id="@+id/imageButtonFolderTTK"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/folder"></TextView>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonTTK"
+        android:layout_width="320dp"
+        android:layout_gravity="center"
+        android:layout_height="50dp"
+        android:textSize="19dp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:layout_margin="10dp"
+        android:background="#28047A"
+        android:text="Xác Nhận"></Button>
+</LinearLayout>

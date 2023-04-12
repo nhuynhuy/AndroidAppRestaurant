@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:weightSum="4"
+        android:gravity="center"
+        android:layout_marginBottom="30dp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:layout_width="70dp"
+                android:background="#FFFFFF"
+                android:layout_height="wrap_content"
+                android:src="@drawable/chart"></ImageButton>
+            <TextView
+                android:gravity="center"
+                android:textSize="16dp"
+                android:text="Thống kê \ndoanh thu"
+                android:textStyle="bold"
+                android:textColor="#28047A"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="70dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:layout_width="70dp"
+                android:background="#FFFFFF"
+                android:layout_height="wrap_content"
+                android:src="@drawable/tablelist"></ImageButton>
+            <TextView
+                android:gravity="center"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:text="Xem danh \nsách bàn"
+                android:textColor="#28047A"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:layout_width="70dp"
+                android:background="#FFFFFF"
+                android:layout_height="wrap_content"
+                android:src="@drawable/menu1"></ImageButton>
+            <TextView
+                android:gravity="center"
+                android:textSize="16dp"
+                android:text="Thêm \nthực đơn"
+                android:textStyle="bold"
+                android:textColor="#28047A"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:id="@+id/layoutthongtinnhanvien"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:layout_width="70dp"
+                android:background="#FFFFFF"
+                android:layout_height="wrap_content"
+                android:src="@drawable/usermenu"></ImageButton>
+            <TextView
+                android:gravity="center"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:text="Thông tin \nnhân viên"
+                android:textColor="#28047A"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></TextView>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</FrameLayout>

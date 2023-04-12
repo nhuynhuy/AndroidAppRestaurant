@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_marginRight="90dp"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="NHÀ HÀNG MATAST"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_margin="20dp"
+        android:textSize="25dp"
+        android:textColor="#28047A"
+        android:drawablePadding="10dp"
+        android:padding="10dp"
+        ></TextView>
+    <TextView
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="20dp"
+        android:drawablePadding="15dp"
+        android:layout_marginTop="15dp"
+        android:text="Trang chủ"
+        android:drawableLeft="@drawable/home"
+        android:textColor="#28047A"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></TextView>
+    <TextView
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:text="Thống kê"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:drawablePadding="15dp"
+        android:drawableLeft="@drawable/analytics"
+        android:textColor="#28047A"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></TextView>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_marginTop="25dp"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="2dp" />
+
+
+    <TextView
+        android:gravity="center"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="20dp"
+        android:text="Quản lý"
+        android:textColor="#28047A"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></TextView>
+    <TextView
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"
+        android:drawablePadding="15dp"
+        android:layout_marginLeft="20dp"
+        android:text="Bàn ăn"
+        android:drawableLeft="@drawable/tablelist"
+        android:textColor="#28047A"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></TextView>
+
+    <TextView
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:text="Thưc đơn"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:drawablePadding="15dp"
+        android:drawableLeft="@drawable/menu1"
+        android:textColor="#28047A"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></TextView>
+    <TextView
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"
+        android:text="Nhân viên"
+        android:drawablePadding="15dp"
+        android:layout_marginLeft="20dp"
+        android:drawableLeft="@drawable/usermenu"
+        android:textColor="#28047A"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></TextView>
+    <TextView
+        android:gravity="center"
+        android:textSize="20dp"
+        android:layout_marginTop="15dp"
+        android:textStyle="bold"
+        android:text="Đăng xuất"
+        android:layout_marginLeft="20dp"
+        android:drawablePadding="15dp"
+        android:drawableLeft="@drawable/dangxuat"
+        android:textColor="#28047A"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></TextView>
+
+
+</LinearLayout>

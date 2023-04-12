@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:backgroundTint="@color/AliceBlue"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp">
+
+        <LinearLayout
+            android:background="@drawable/rounded_corner"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:outlineAmbientShadowColor="@color/black"
+            android:outlineSpotShadowColor="@color/black"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/food_thumbnail"
+                android:layout_width="150dp"
+                android:layout_height="140dp"
+                android:scaleType="fitXY"
+                android:layout_marginLeft="5dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/drink1"
+                android:contentDescription="Button show food details"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/rounded_corner"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/food_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textAppearance="@style/beef_steak"
+                    android:fontFamily="@font/uvnbachdang"
+                    android:textSize="30sp"
+                    android:layout_gravity="center"
+                    android:textColor="@color/Black"
+                    android:text="TextView" />
+                <LinearLayout
+                    android:paddingTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Price: "
+                        android:textSize="20sp"
+                        android:layout_gravity="top"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/uvnbachdang"
+                        />
+
+                    <TextView
+                        android:id="@+id/food_price"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/uvnbachdang"
+                        android:layout_width="match_parent"
+                        android:gravity="end|center_horizontal"
+                        android:textSize="20sp"
+                        android:layout_height="30dp"
+                        android:text="TextView" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:paddingTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sales: "
+                        android:fontFamily="@font/uvnbachdang"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        />
+                    <TextView
+                        android:id="@+id/food_num"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:gravity="end|center_horizontal"
+                        android:fontFamily="@font/uvnbachdang"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="300" />
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+        </LinearLayout>
+</LinearLayout>

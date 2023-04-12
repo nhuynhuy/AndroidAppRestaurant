@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <ImageView
+        android:id="@+id/imFoodDetails"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/drink1" />
+
+    <LinearLayout
+        android:layout_marginTop="200dp"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:background="@drawable/rounded_corner_white"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/titleFoodDetails"
+            android:text="Food Name"
+            android:textSize="70sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:fontFamily="@font/uvnbachdang"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="Menu Type: "
+                android:fontFamily="@font/mavenpro_bold"
+                android:textSize="25sp"
+                android:textFontWeight="600"
+                android:textColor="@color/black"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/menuFoodDetails"
+                android:text="Menu name"
+                android:textSize="25sp"
+                android:fontFamily="@font/mavenpro_medium"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="Description: "
+                android:textColor="@color/black"
+                android:fontFamily="@font/mavenpro_bold"
+                android:textSize="25sp"
+                android:textFontWeight="600"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:id="@+id/descFoodDetails"
+                android:text="Menu type"
+                android:textSize="25sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/mavenpro_medium"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="Price: "
+                android:textColor="@color/black"
+                android:fontFamily="@font/mavenpro_bold"
+                android:textSize="25sp"
+                android:textFontWeight="600"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/priceFoodDetails"
+                android:text="Gia Tien"
+                android:textSize="25sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/uvnbachdang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="Sales: "
+                android:textColor="@color/black"
+                android:fontFamily="@font/mavenpro_bold"
+                android:textSize="25sp"
+                android:textFontWeight="600"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="330"
+                android:textSize="25sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/uvnbachdang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btnDeleteDetails"
+                android:text="Delete"
+                android:layout_marginLeft="40dp"
+                android:textSize="18sp"
+                android:backgroundTint="@color/IndianRed"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"/>
+            <Button
+                android:id="@+id/btnEditDetails"
+                android:text="Edit"
+                android:textSize="18sp"
+                android:layout_marginLeft="50dp"
+                android:backgroundTint="@color/BlueNgoc"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</FrameLayout>
