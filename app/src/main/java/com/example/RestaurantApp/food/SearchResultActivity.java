@@ -1,4 +1,4 @@
-package com.example.RestaurantApp;
+package com.example.RestaurantApp.food;
 
 import android.annotation.SuppressLint;
 import android.database.Cursor;
@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.RestaurantApp.R;
 import com.example.RestaurantApp.adapters.FoodCursorAdapter;
 import com.example.RestaurantApp.adapters.MenuCursorAdapter;
 import com.example.RestaurantApp.db.DBHelper;

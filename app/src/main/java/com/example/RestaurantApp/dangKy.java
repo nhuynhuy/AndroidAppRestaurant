@@ -37,8 +37,8 @@ public class dangKy extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dang_ky);
-        data = new Database(dangKy.this,"QLDatabase.sqlie",null,1);
-        //data.QueryData("CREATE TABLE BANG2( tenTaiKhoan VARCHAR(50) PRIMARY KEY,hoTenNV NVARCHAR(100), quyenHan NVARCHAR(50),SDT VARCHAR(20),email VARCHAR(50),matKhau VARCHAR(50),Hinh BLOB)");
+        data = new Database(dangKy.this,"QLDatabase.sqlite",null,1);
+        data.QueryData("CREATE TABLE BANG2( tenTaiKhoan VARCHAR(50) PRIMARY KEY,hoTenNV NVARCHAR(100), quyenHan NVARCHAR(50),SDT VARCHAR(20),email VARCHAR(50),matKhau VARCHAR(50),Hinh BLOB)");
 
 
         anhXa();

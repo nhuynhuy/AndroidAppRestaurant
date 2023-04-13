@@ -1,9 +1,4 @@
-package com.example.RestaurantApp;
-
-
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.RestaurantApp.food;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -15,7 +10,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-//import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -27,6 +21,11 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.RestaurantApp.R;
 import com.example.RestaurantApp.adapters.FoodCursorAdapter;
 import com.example.RestaurantApp.adapters.MenuAdapter;
 import com.example.RestaurantApp.adapters.MenuCursorAdapter;
@@ -40,22 +39,23 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
-public class FoodAddActivity extends AppCompatActivity {
-
+public class FoodEditActivity extends AppCompatActivity {
     int REQUEST_CODE_CAMERA =123;
     int REQUEST_CODE_UPLOAD =456;
     EditText edTitle;
     EditText edDisc;
     EditText edPrice;
-
-    Button btnAdd;
+    Button btnUpdate;
     Button btnDone;
 
     Button btnCamera ;
     Button btnUpload ;
     ImageView imgPicture ;
-    byte[] hinhAnh2;
+    Cursor cursor;
+    //spinner menu
+    Spinner spMenu;
 
+    byte[] hinhAnh;
     private ArrayList<Menu> menuList;
     private MenuAdapter menuAdapter;
     ImageButton imMenu;
@@ -64,27 +64,19 @@ public class FoodAddActivity extends AppCompatActivity {
     byte[] menuPicture;
     Spinner spinnerMenu;
 
+    //adapter food cursor
     FoodCursorAdapter foodCursorAdapter;
     public static final int PICK_IMAGE = 1;
+    public static int indexCurrent;
 
+    @SuppressLint("Range")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_food_add);
+        setContentView(R.layout.activity_food_edit);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.BlueNgoc)));
+
         AnhXa();
-
-        ArrayList<String> arrayList = new ArrayList<String>();
-
-        MenuCursorAdapter menuCursorAdapter;
-        Cursor cursor = MenuModify.findAll();
-        menuCursorAdapter = new MenuCursorAdapter(FoodAddActivity.this,cursor);
-        cursor=menuCursorAdapter.getCursor();
-        while (cursor.moveToNext()){
-            @SuppressLint("Range") String name = cursor.getString(cursor.getColumnIndex("name"));
-            arrayList.add(name);
-        }
-
         //nut tro ve tren thanh action bar
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -92,24 +84,54 @@ public class FoodAddActivity extends AppCompatActivity {
         }
 
 
+        ArrayList<String> arrayList = new ArrayList<String>();
+        MenuCursorAdapter menuCursorAdapter;
+        Cursor cursorMenu = MenuModify.findAll();
+        menuCursorAdapter = new MenuCursorAdapter(FoodEditActivity.this,cursorMenu);
+        cursorMenu=menuCursorAdapter.getCursor();
+        while (cursorMenu.moveToNext()){
+            @SuppressLint("Range") String name = cursorMenu.getString(cursorMenu.getColumnIndex("name"));
+            arrayList.add(name);
+        }
+
         //menuAdapter = new MenuAdapter(this, menuList);
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item,arrayList);
         arrayAdapter.setDropDownViewResource(R.layout.custom_text_spinner);
-
         spinnerMenu.setAdapter(arrayAdapter);
         spinnerMenu.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
                 menuName = arrayList.get(i).toString();
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
             }
         });
 
+        Toast.makeText(this, "bug here", Toast.LENGTH_SHORT).show();
+
+
+        //get current position
+        Cursor cursor = FoodModify.findAll();
+        foodCursorAdapter = new FoodCursorAdapter(FoodEditActivity.this,cursor);
+        cursor = foodCursorAdapter.getCursor();
+        foodCursorAdapter = new FoodCursorAdapter(FoodEditActivity.this, cursor);
+        cursor.moveToPosition(indexCurrent);
+
+        FoodModify foodModify = new FoodModify();
+        Food food = foodModify.getFood(indexCurrent);
+
+        // get current food
+        edTitle.setText(food.getTitle());
+        edDisc.setText(food.getDisc());
+        edPrice.setText(String.valueOf(food.getPrice()));
+        byte[] pictureCR = food.getPicture();
+        Bitmap bitmap = BitmapFactory.decodeByteArray(pictureCR,0, pictureCR.length);
+        imgPicture.setImageBitmap(bitmap);
+
+
+        // chup anh
         btnCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -127,14 +149,10 @@ public class FoodAddActivity extends AppCompatActivity {
             }
         });
 
-
-        menuAdapter = new MenuAdapter(this, menuList);
-        btnAdd.setOnClickListener(new View.OnClickListener() {
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("Range")
             @Override
             public void onClick(View v) {
-
-                // below is get data spinner
-
 
                 // below line is change imageview -> byte
                 BitmapDrawable bitmapDrawable = (BitmapDrawable) imgPicture.getDrawable();
@@ -143,39 +161,40 @@ public class FoodAddActivity extends AppCompatActivity {
                 bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
                 byte[] hinhAnh = byteArrayOutputStream.toByteArray();
 
-
                 // below line is to get data from all edit text fields.
                 String foodTitle = edTitle.getText().toString();
                 String foodDisc = edDisc.getText().toString();
-                //String foodMneu = spMenu.g
                 Float foodPrice = Float.valueOf(edPrice.getText().toString());
                 byte[] foodPicture = hinhAnh;
 
+                //get update current food
+                if(indexCurrent >= 0){
+                    Cursor cursor = FoodModify.findAll();
+                    foodCursorAdapter = new FoodCursorAdapter(FoodEditActivity.this,cursor);
+                    cursor = foodCursorAdapter.getCursor();
+                    foodCursorAdapter = new FoodCursorAdapter(FoodEditActivity.this, cursor);
+                    cursor.moveToPosition(indexCurrent);
+
+                    @SuppressLint("Range") int id = food.getFoodId();
+
+                    Food foodUpdated = new Food(foodTitle, foodDisc, menuName,foodPrice,foodPicture);
+                    foodUpdated.setFoodId(id);
+                    FoodModify.update(foodUpdated);
+                }
+
                 // validating if the text fields are empty or not.
-                if (foodTitle.isEmpty() && foodDisc.isEmpty() && String.valueOf(foodPicture).isEmpty()) {
-                    Toast.makeText(FoodAddActivity.this, "Please enter all the data..", Toast.LENGTH_SHORT).show();
+                if (foodTitle.isEmpty() && foodDisc.isEmpty() &&String.valueOf(foodPrice).isEmpty() && String.valueOf(foodPicture).isEmpty()) {
+                    Toast.makeText(FoodEditActivity.this, "Please enter all the data..", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 // on below line we are calling a method to add new
                 // food to sqlite data and pass all our values to it.
-                //insert to DATABASE
-                Food food = new Food(foodTitle, foodDisc, menuName,foodPrice,foodPicture);
-                FoodModify.insert(food);
-
-                FoodModify foodModify = new FoodModify();
-                Food food1 = foodModify.getFoodByName(foodTitle);
-                Toast.makeText(FoodAddActivity.this, String.valueOf(food1.getFoodId()), Toast.LENGTH_SHORT).show();
-
-                //change cursor
-//                Cursor cursor = FoodModify.findAll();
-//                foodCursorAdapter.changeCursor(cursor);
-                //foodDatabase.addNewFood2(foodTitle, foodDisc, foodPrice, foodPicture);
                 // after adding the data we are displaying a toast message.
-                //Toast.makeText(FoodAddActivity.this, "Food has been added.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(FoodEditActivity.this, "Food has been updated.", Toast.LENGTH_SHORT).show();
 
                 //debug
-                Toast.makeText(FoodAddActivity.this, String.valueOf(foodPrice), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(FoodEditActivity.this, String.valueOf(foodPrice), Toast.LENGTH_SHORT).show();
                 //
 
                 edTitle.setText("");
@@ -186,7 +205,7 @@ public class FoodAddActivity extends AppCompatActivity {
         btnDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(FoodAddActivity.this, FoodActivity.class);
+                Intent i = new Intent(FoodEditActivity.this, FoodActivity.class);
                 startActivity(i);
             }
         });
@@ -216,17 +235,21 @@ public class FoodAddActivity extends AppCompatActivity {
 
     private void AnhXa(){
 
-        edTitle = findViewById(R.id.title);
-        edDisc = findViewById(R.id.disc);
-        edPrice = findViewById(R.id.price);
-        //spMenu = findViewById(R.id.food_spinner);
+        edTitle = findViewById(R.id.edTitle);
+        edDisc = findViewById(R.id.edDisc);
+        edPrice = findViewById(R.id.edPrice);
 
-        btnCamera = findViewById(R.id.btn_shot);
-        btnUpload = findViewById(R.id.btn_upload);
-        imgPicture = findViewById(R.id.picture);
-        btnAdd = findViewById(R.id.btnAdd);
+
+        btnCamera = findViewById(R.id.edbtn_shot);
+        btnUpload = findViewById(R.id.edImbtn_upload);
+        imgPicture = findViewById(R.id.edPicture);
+        btnUpdate = findViewById(R.id.btnEdit);
         btnDone = findViewById(R.id.btnDone);
-        spinnerMenu = findViewById(R.id.food_spinner);
+        spinnerMenu = findViewById(R.id.edFood_spinner);
+    }
+
+    public static void getCurrentIndex(int index){
+        indexCurrent = index;
     }
 
     @Override
@@ -242,13 +265,13 @@ public class FoodAddActivity extends AppCompatActivity {
     }
 
 
-
     //change picture -> bitmap
     private void bitmap(int pic) {
+        imMenu = findViewById(pic);
         BitmapDrawable bitmapDrawable = (BitmapDrawable) imMenu.getDrawable();
         Bitmap bitmap = bitmapDrawable.getBitmap();
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-        hinhAnh2 = byteArrayOutputStream.toByteArray();
+        hinhAnh = byteArrayOutputStream.toByteArray();
     }
 }

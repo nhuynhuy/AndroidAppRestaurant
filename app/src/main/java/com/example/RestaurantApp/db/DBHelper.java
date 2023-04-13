@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.RestaurantApp.entity.FoodModify;
@@ -12,7 +13,7 @@ import com.example.RestaurantApp.entity.MenuModify;
 
 public class DBHelper extends SQLiteOpenHelper {
     //private static final String DB_NAME = "NhaHang";
-    private static final String DB_NAME = "NhaHang2";
+    private static final String DB_NAME = "Restaurant";
     private  static final int DB_VERSION = 1;
 
     private static DBHelper instance = null;
@@ -42,7 +43,7 @@ public class DBHelper extends SQLiteOpenHelper {
 //    }
 
     @Override
-    public void onCreate(SQLiteDatabase sqLiteDatabase) {
+    public void onCreate(@NonNull SQLiteDatabase sqLiteDatabase) {
         // TH nao thi goi toi function : 1 lan khi tao DB_VERSION 1
         String sqlMenu = MenuModify.QUERY_CREATE_TABLE;
         sqLiteDatabase.execSQL(sqlMenu);

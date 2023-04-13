@@ -15,8 +15,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.RestaurantApp.FoodDetailsActivity;
-import com.example.RestaurantApp.ImageConverter;
+import com.example.RestaurantApp.food.FoodDetailsActivity;
+import com.example.RestaurantApp.food.ImageConverter;
 import com.example.RestaurantApp.R;
 
 public class FoodCursorAdapter extends CursorAdapter {

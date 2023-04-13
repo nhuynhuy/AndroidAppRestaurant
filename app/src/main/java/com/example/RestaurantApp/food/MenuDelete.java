@@ -1,4 +1,4 @@
-package com.example.RestaurantApp;
+package com.example.RestaurantApp.food;
 
 import android.app.Activity;
 import android.content.DialogInterface;

@@ -1,4 +1,4 @@
-package com.example.RestaurantApp;
+package com.example.RestaurantApp.food;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;

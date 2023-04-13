@@ -13,8 +13,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
-import com.example.RestaurantApp.FoodAddActivity;
-import com.example.RestaurantApp.FoodEditActivity;
+import com.example.RestaurantApp.food.FoodAddActivity;
+import com.example.RestaurantApp.food.FoodEditActivity;
 import com.example.RestaurantApp.R;
 import com.example.RestaurantApp.models.Menu;
 

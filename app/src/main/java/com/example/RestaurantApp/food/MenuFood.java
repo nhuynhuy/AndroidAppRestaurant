@@ -1,4 +1,4 @@
-package com.example.RestaurantApp;
+package com.example.RestaurantApp.food;
 
 
 import androidx.annotation.NonNull;
@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.CursorWindow;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.Menu;
@@ -18,12 +17,11 @@ import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.SearchView;
 
+import com.example.RestaurantApp.R;
 import com.example.RestaurantApp.adapters.MenuCursorAdapter;
 import com.example.RestaurantApp.db.DBHelper;
 import com.example.RestaurantApp.entity.MenuModify;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import java.lang.reflect.Field;
 
 public class MenuFood extends AppCompatActivity {
     GridView menuGridView;

@@ -1,4 +1,4 @@
-package com.example.RestaurantApp;
+package com.example.RestaurantApp.food;
 
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
@@ -18,6 +18,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.RestaurantApp.R;
 import com.example.RestaurantApp.adapters.FoodCursorAdapter;
 import com.example.RestaurantApp.entity.FoodModify;
 import com.example.RestaurantApp.models.Food;
